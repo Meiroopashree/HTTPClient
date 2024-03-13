@@ -64,6 +64,7 @@
 // }
 
 
+
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { Task } from '../model/task.model';
@@ -74,7 +75,7 @@ import { Task } from '../model/task.model';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  tasks$: any[] = [];
+  tasks: Task[] = [];
   selectedTask: Task | null = null;
   newTask: Task = { id: 0, title: '', description: '' };
 
@@ -87,7 +88,7 @@ export class TaskListComponent implements OnInit {
   loadTasks(): void {
     this.taskService.getTasks().subscribe(
       (tasks) => {
-        this.tasks$ = tasks;
+        this.tasks = tasks;
       },
       (error) => {
         console.error('Error loading tasks:', error);
@@ -109,3 +110,4 @@ export class TaskListComponent implements OnInit {
     }
   }
 }
+
