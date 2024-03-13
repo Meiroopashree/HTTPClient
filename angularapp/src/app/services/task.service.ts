@@ -11,11 +11,11 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<Task[]> {
+  getTasks(){
     return this.http.get<Task[]>(this.apiUrl);
   }
 
-  addTask(task: Task): Observable<Task> {
+  addTask(task: Task){
     return this.http.post<Task>(this.apiUrl, task);
   }
 
